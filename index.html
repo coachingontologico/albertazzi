@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#10121b">
+<title>Prácticas Reflexivas</title>
+<style>
+:root{--red:#e96b73;--red2:#ff9b9f;--blue:#6bb9e8;--ink:#10121b;--cream:#fff8f3;--muted:#cbd2df}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:var(--ink);color:var(--cream);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif}
+body{overflow:hidden}.deck{height:100dvh;width:100vw;overflow-x:auto;overflow-y:hidden;display:flex;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none;touch-action:pan-x pan-y}.deck::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100vw;width:100vw;height:100dvh;min-height:100dvh;scroll-snap-align:start;position:relative;overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:clamp(22px,5vw,70px);text-align:center;background:radial-gradient(ellipse at 15% 15%,#e96b7328,transparent 42%),radial-gradient(ellipse at 85% 80%,#6bb9e82b,transparent 40%),linear-gradient(135deg,#12131d,#202333)}
+.slide:nth-child(even){background:radial-gradient(ellipse at 80% 15%,#6bb9e82d,transparent 42%),radial-gradient(ellipse at 15% 85%,#e96b732b,transparent 40%),linear-gradient(135deg,#151622,#252332)}
+.content{width:min(100%,1050px);margin:auto;position:relative;z-index:1}.eyebrow{letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:var(--blue);font-weight:800}.title{font-size:clamp(2.8rem,9vw,7rem);line-height:.98;letter-spacing:-.055em;margin:.22em 0;color:#fff;text-wrap:balance}.title .accent{color:var(--red2)}.subtitle{font-size:clamp(1.05rem,2.6vw,1.8rem);line-height:1.5;max-width:850px;margin:1.2rem auto;color:#e6e8f0}.ornament{font-size:clamp(1.7rem,5vw,3.4rem);margin:1rem 0}.scribble{color:var(--red2);font-size:1.3rem;letter-spacing:.2em}.timer{font-variant-numeric:tabular-nums;font-size:clamp(4.4rem,18vw,10rem);font-weight:900;letter-spacing:-.06em;color:#fff;text-shadow:0 8px 35px #0005;margin:.15em 0}.timer-label{color:var(--blue);letter-spacing:.18em;font-weight:800;text-transform:uppercase}.controls{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:1rem}.btn{border:0;border-radius:999px;padding:14px 24px;font-size:1rem;font-weight:800;cursor:pointer;color:#111522;background:var(--red2);box-shadow:0 7px 0 #a84753;transition:transform .15s}.btn:active{transform:translateY(3px);box-shadow:0 4px 0 #a84753}.btn.blue{background:var(--blue);box-shadow:0 7px 0 #367ca8}.btn.ghost{background:#ffffff12;color:#fff;border:1px solid #ffffff35;box-shadow:none}.note{font-size:.9rem;color:#c5ccda;margin-top:1rem}.pill{display:inline-block;padding:8px 15px;border:1px solid #ffffff35;border-radius:999px;color:#dceeff;background:#ffffff0b;margin:5px}.art{display:flex;gap:clamp(15px,5vw,60px);justify-content:center;align-items:center;margin:2rem auto;flex-wrap:wrap}.animal{font-size:clamp(6rem,20vw,12rem);filter:drop-shadow(0 18px 15px #0005);animation:float 3s ease-in-out infinite}.animal:nth-child(2){animation-delay:.4s}@keyframes float{50%{transform:translateY(-10px) rotate(-2deg)}}.animal-card{background:#ffffff0b;border:1px solid #ffffff1b;border-radius:28px;padding:18px 28px;min-width:150px}.animal-card p{margin:.2rem 0;color:#d7dce7;font-weight:700}.big-question{font-size:clamp(2.5rem,8vw,6.4rem);line-height:1.06;letter-spacing:-.04em;font-weight:900;text-wrap:balance}.reveal{max-width:850px;margin:1.2rem auto;padding:22px 26px;border-radius:22px;background:#ffffff10;border:1px solid #ffffff26;font-size:clamp(1.2rem,3vw,2rem);line-height:1.4;color:#fff;animation:pop .25s ease-out}@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.code{font-family:ui-monospace,monospace;font-size:clamp(1.3rem,4vw,2.5rem);font-weight:900;color:var(--blue);letter-spacing:.08em;margin:1rem}.qrbox{width:min(62vw,240px);aspect-ratio:1;background:#fff;color:#111;border-radius:18px;margin:20px auto;display:grid;place-items:center;padding:14px;overflow:hidden}.qrbox img{width:100%;height:100%;object-fit:contain}.qr-placeholder{font-size:.9rem;line-height:1.35;color:#333}.qr-placeholder b{display:block;font-size:1.5rem;margin-bottom:8px}.navhint{position:fixed;bottom:max(12px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:10;color:#e6e9f2;background:#11131dcc;border:1px solid #ffffff25;border-radius:999px;padding:8px 15px;font-size:.78rem;backdrop-filter:blur(8px);pointer-events:none;white-space:nowrap}.progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--red),var(--blue));width:0;z-index:20;transition:width .15s}.dots{position:fixed;top:14px;right:14px;z-index:15;color:#fff9;background:#10121bbb;border:1px solid #ffffff25;padding:7px 12px;border-radius:999px;font-size:.78rem}.tiny{font-size:.82rem;color:#aeb8c9;line-height:1.45}.field{width:100%;min-height:140px;padding:16px;border-radius:18px;border:2px solid #ffffff30;background:#ffffff0d;color:#fff;font:inherit;font-size:1rem;resize:vertical}.field:focus{outline:2px solid var(--blue)}.participant{min-height:100dvh;overflow:auto;padding:24px;background:radial-gradient(ellipse at 10% 10%,#e96b7330,transparent 45%),linear-gradient(145deg,#11131d,#222638);display:flex;align-items:center;justify-content:center}.participant-card{width:min(100%,650px);padding:clamp(22px,5vw,44px);border:1px solid #ffffff26;background:#ffffff0a;border-radius:28px}.participant h1{font-size:clamp(2rem,8vw,3.6rem);line-height:1.05;margin:.4em 0}.participant .btn{margin-top:15px}.hidden{display:none!important}
+@media(max-height:620px) and (orientation:landscape){.slide{padding:18px 32px}.title{font-size:clamp(2.5rem,8vh,5rem)}.timer{font-size:clamp(3.5rem,20vh,7rem)}.ornament{margin:.3rem}.animal{font-size:5rem}}
+</style>
+</head>
+<body>
+<div id="participant" class="participant hidden">
+  <main class="participant-card">
+    <div class="eyebrow">🎨🎼 Prácticas reflexivas</div>
+    <h1>¿Por qué es importante la inteligencia artificial en las aulas?</h1>
+    <p class="subtitle" style="text-align:left;margin:0 0 18px">Compartí tu reflexión. Tu respuesta se abrirá en WhatsApp para que puedas enviársela al entrenador.</p>
+    <form id="answerForm">
+      <label for="answer" class="tiny">Tu respuesta</label>
+      <textarea id="answer" class="field" required maxlength="1500" placeholder="Escribí tu respuesta aquí…"></textarea>
+      <button class="btn blue" type="submit">Enviar ✉️</button>
+    </form>
+    <p class="tiny">Al tocar Enviar, WhatsApp se abrirá con el mensaje preparado. Confirmá el envío desde tu celular.</p>
+  </main>
+</div>
+<div id="presentation">
+<div class="progress" id="progress"></div><div class="dots" id="counter">01 / 10</div>
+<main class="deck" id="deck" aria-label="Presentación. Deslizá para cambiar de diapositiva">
+<section class="slide"><div class="content"><div class="eyebrow">🎼 Profesorado de Música · 🎨 Profesorado de Artes Visuales</div><div class="ornament">✦ 🎨 ✦ 🎶 ✦</div><h1 class="title"><span class="accent">PRÁCTICAS</span><br>REFLEXIVAS</h1><div class="scribble">〰 ✧ 〰 ✧ 〰</div><p class="subtitle">Enriquecer los relatos que habitamos<br>para abrir nuevas posibilidades de ser y hacer.</p><div class="ornament">🖌️　🎹　🌀</div><span class="pill">Mirar · Escuchar · Crear</span></div></section>
+<section class="slide"><div class="content"><div class="eyebrow">🌿 Después de la dinámica sistémica</div><h1 class="title"><span class="accent">EL</span> OTRO</h1><p class="subtitle">Tomate un momento para registrar lo que quedó resonando.</p><div class="timer-label">Tiempo de reflexión</div><div class="timer" data-timer="240">04:00</div><div class="controls"><button class="btn" data-action="start">▶ Play</button><button class="btn blue" data-action="pause">Ⅱ Pausar</button><button class="btn ghost" data-action="reset">↺ Reiniciar</button></div><p class="note">La cuenta comienza cuando presionás Play.</p><div class="ornament">🫧 ✧ 🫧</div></div></section>
+<section class="slide"><div class="content"><div class="eyebrow">🪞 Una pregunta para mirar hacia adentro</div><h1 class="big-question">¿Quién habla<br>cuando hablo<br>del otro?</h1><div class="timer" data-timer="45">00:45</div><div class="controls"><button class="btn" data-action="start">▶ Play</button><button class="btn blue" data-action="pause">Ⅱ Pausar</button><button class="btn ghost" data-action="reset">↺ Reiniciar</button></div><p class="note">Escuchá lo que aparece, sin apurarte a responder.</p></div></section>
+<section class="slide"><div class="content"><div class="eyebrow">🎭🎹 Crear también es elegir</div><div class="ornament">✦ ✧ ✦</div><h1 class="title"><span class="accent">pensar</span><br>la clase</h1><p class="subtitle">¿Qué ponemos en juego al dar una clase?</p><div class="ornament">🎨　🎼　💭</div><span class="pill">Presencia</span><span class="pill">Vínculo</span><span class="pill">Imaginación</span><span class="pill">Escucha</span></div></section>
+<section class="slide"><div class="content"><div class="eyebrow">💡 Tecnología + creatividad + pedagogía</div><h1 class="title">Integración de la <span class="accent">inteligencia artificial</span> en las aulas</h1><div class="code">‹ INDEX.HTML /›</div><p class="subtitle">Una página puede convertirse en una experiencia de aprendizaje interactiva.</p><button class="btn blue" id="whyBtn">¿Por qué es importante la inteligencia artificial en las aulas?</button><div id="practice" class="reveal hidden">✨ PONGÁMOSLO EN PRÁCTICA ✨</div><div class="ornament">🧠 ✦ 🖥️ ✦ 🎨</div></div></section>
+<section class="slide"><div class="content"><div class="eyebrow">📱 Participación desde tu celular</div><h1 class="title">Tu voz también <span class="accent">crea</span></h1><p class="subtitle">Escaneá el QR y respondé desde tu propio dispositivo.</p><div class="qrbox" id="qrBox"><div class="qr-placeholder"><b>QR</b>Para activar este código, publicá el HTML y configurá la dirección pública en el archivo.<br><small>Ver instrucciones al final del código.</small></div></div><p class="subtitle" style="font-size:1rem">¿Por qué es importante la inteligencia artificial en las aulas?</p><p class="tiny">Cada participante responde en su celular. La pantalla de la presentación no cambia.</p><div class="pill">💬 Respuesta individual · WhatsApp</div></div></section>
+<section class="slide"><div class="content"><div class="eyebrow">📖 Un cuento para abrir posibilidades</div><h1 class="title">El cuento de la <span class="accent">oveja</span><br>y el tigre</h1><div class="art"><div class="animal-card"><div class="animal">🐑</div><p>La oveja tímida</p></div><div class="animal-card"><div class="animal">🐅</div><p>El tigre rugiendo</p></div></div><p class="subtitle">¿Qué cambia cuando descubrimos una voz propia?</p><div class="scribble">〰 ✦ 〰 ✦ 〰</div></div></section>
+<section class="slide"><div class="content"><div class="eyebrow">🦁 Una invitación a reconocerte</div><div class="ornament">🔥 🐯 🔥</div><h1 class="big-question">¿Cuál es<br>tu rugido?</h1><p class="subtitle">¿Qué voz, deseo o posibilidad está esperando ser expresada?</p><div class="ornament">✧</div></div></section>
+<section class="slide"><div class="content"><div class="eyebrow">🪞 Preguntas para llevarte</div><h1 class="title">Dejá que la pregunta <span class="accent">trabaje</span></h1><div class="controls"><button class="btn" data-reveal="q1">Pregunta número uno</button><button class="btn blue" data-reveal="q2">Pregunta número 2</button></div><div id="q1" class="reveal hidden">¿Qué diría tu niño interior si te viera hoy?</div><div id="q2" class="reveal hidden">¿Qué te gustaría que diga tu lápida?</div><div class="ornament">💭 ✦ 🖋️</div></div></section>
+<section class="slide"><div class="content"><div class="eyebrow">🌱 Cierre</div><div class="ornament">✦ 🎨 🎼 ✦</div><h1 class="title">El relato que habitás hoy<br>es el <span class="accent">futuro</span><br>que estás creando.</h1><div class="scribble">〰 ✧ 〰 ✧ 〰</div><p class="title" style="font-size:clamp(2.8rem,9vw,6rem);margin-top:.55em">¡Muchas gracias!</p><div class="ornament">💙 ❤️ 🖤</div></div></section>
+</main><div class="navhint">Deslizá ← hacia los lados → para avanzar</div>
+</div>
+<script>
+(() => {
+const params=new URLSearchParams(location.search);
+const participantMode=params.get('participar')==='1';
+const participant=document.getElementById('participant');
+const presentation=document.getElementById('presentation');
+if(participantMode){
+  participant.classList.remove('hidden');presentation.classList.add('hidden');
+  document.getElementById('answerForm').addEventListener('submit',e=>{
+    e.preventDefault();const text=document.getElementById('answer').value.trim();if(!text)return;
+    const msg='Respuesta a: ¿Por qué es importante la inteligencia artificial en las aulas?\\n\\n'+text;
+    location.href='https://wa.me/3704097249?text='+encodeURIComponent(msg);
+  });
+  return;
+}
+const deck=document.getElementById('deck'),slides=[...document.querySelectorAll('.slide')],counter=document.getElementById('counter'),progress=document.getElementById('progress');
+function update(){const i=Math.round(deck.scrollLeft/Math.max(1,deck.clientWidth));counter.textContent=String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');progress.style.width=((i+1)/slides.length*100)+'%';}
+deck.addEventListener('scroll',()=>requestAnimationFrame(update));window.addEventListener('resize',update);update();
+let timers=new Map();
+function renderTimer(el,seconds){const m=Math.floor(seconds/60),s=seconds%60;el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');}
+document.querySelectorAll('[data-timer]').forEach(el=>{const initial=Number(el.dataset.timer);timers.set(el,{initial,remaining:initial,interval:null});renderTimer(el,initial);});
+function stop(t){if(t.interval){clearInterval(t.interval);t.interval=null;}}
+document.querySelectorAll('[data-action]').forEach(btn=>btn.addEventListener('click',()=>{
+ const slide=btn.closest('.slide'),el=slide.querySelector('[data-timer]'),t=timers.get(el);if(!t)return;
+ const action=btn.dataset.action;
+ if(action==='start'&&!t.interval&&t.remaining>0){t.interval=setInterval(()=>{t.remaining--;renderTimer(el,t.remaining);if(t.remaining<=0)stop(t);},1000);}
+ if(action==='pause')stop(t);
+ if(action==='reset'){stop(t);t.remaining=t.initial;renderTimer(el,t.remaining);}
+}));
+document.getElementById('whyBtn').addEventListener('click',()=>document.getElementById('practice').classList.remove('hidden'));
+document.querySelectorAll('[data-reveal]').forEach(btn=>btn.addEventListener('click',()=>document.getElementById(btn.dataset.reveal).classList.toggle('hidden')));
+// Set this to the publicly hosted URL of this same HTML file after publishing.
+// Example: https://example.com/index.html
+const PUBLIC_URL='';
+if(PUBLIC_URL){
+ const participantURL=PUBLIC_URL+(PUBLIC_URL.includes('?')?'&':'?')+'participar=1';
+ const img=document.createElement('img');img.alt='Código QR para abrir la actividad en el celular';
+ img.src='https://api.qrserver.com/v1/create-qr-code/?size=500x500&data='+encodeURIComponent(participantURL);
+ const box=document.getElementById('qrBox');box.textContent='';box.appendChild(img);
+}
+})();
+</script>
+</body>
+</html>
