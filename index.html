@@ -81,7 +81,7 @@ const PUBLIC_URL='';
 if(PUBLIC_URL){
  const participantURL=PUBLIC_URL+(PUBLIC_URL.includes('?')?'&':'?')+'participar=1';
  const img=document.createElement('img');img.alt='Código QR para abrir la actividad en el celular';
- img.src='https://api.qrserver.com/v1/create-qr-code/?size=500x500&data='+encodeURIComponent(participantURL);
+ img.src='codigoqr.png'+encodeURIComponent(participantURL);
  const box=document.getElementById('qrBox');box.textContent='';box.appendChild(img);
 }
 })();
